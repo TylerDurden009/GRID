@@ -1,0 +1,20 @@
+h1{
+    border: 2px solid gray;
+    color: blueviolet;
+    background-color: aquamarine;
+    
+}
+
+#heading{
+    color: rgb(147, 140, 210);
+    box-shadow: inset;
+    border: 5px;
+}
+
+.main{
+    background-color:rgb(202, 196, 255) ;
+    box-sizing: border-box;
+    border: 0ch;
+}
+
+#

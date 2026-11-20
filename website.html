@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flipkart Product Card</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            background-color: white;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .product-card {
+            width: 100%;
+        }
+
+        .image-box {
+            width: 100%;
+            height: 400px;
+            background-color: #f1f1f1;
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .rating {
+            position: absolute;
+            bottom: 8px;
+            left: 8px;
+            background-color: white;
+            padding: 5px 8px;
+            border-radius: 5px;
+            font-size: 13px;
+        }
+
+        .product-info {
+            padding-top: 10px;
+        }
+
+        .product-info h4 {
+            font-size: 14px;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .old-price {
+            color: gray;
+            text-decoration: line-through;
+            font-size: 14px;
+        }
+
+        .price {
+            font-size: 17px;
+            margin-top: 5px;
+        }
+
+        .offer {
+            color: blue;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        @media (max-width: 700px) {
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="products">
+
+        <!-- Samsung Card -->
+        <div class="product-card">
+
+            <div class="image-box">
+                <img src="samsung.jpg" alt="Samsung Galaxy A36">
+
+                <div class="rating">
+                    4.4 ⭐ (22,914)
+                </div>
+            </div>
+
+            <div class="product-info">
+                <h4>Samsung Galaxy A36 5G (Dark Green, 128GB)</h4>
+
+                <p class="old-price">₹39,499</p>
+
+                <h3 class="price">₹28,999</h3>
+
+                <p class="offer">₹27,549 with Bank offer</p>
+            </div>
+
+        </div>
+
+        <!-- Card 2 -->
+        <div class="product-card">
+
+            <div class="image-box">
+                <img src="kurta.jpg" alt="Women's Kurta">
+
+                <div class="rating">
+                    4 ⭐ (1,961)
+                </div>
+            </div>
+
+            <div class="product-info">
+                <h4>Women's Cotton Blend Kurta</h4>
+                <p class="old-price">₹2,999</p>
+                <h3 class="price">₹360</h3>
+            </div>
+
+        </div>
+
+        <!-- Card 3 -->
+        <div class="product-card">
+
+            <div class="image-box">
+                <img src="shoes.jpg" alt="Casual Shoes">
+            </div>
+
+            <div class="product-info">
+                <h4>Premium Comfort Casual Shoes</h4>
+                <p class="old-price">₹1,499</p>
+                <h3 class="price">₹476</h3>
+            </div>
+
+        </div>
+
+        <!-- Card 4 -->
+        <div class="product-card">
+
+            <div class="image-box">
+                <img src="shirt.jpg" alt="Men's T-shirt">
+            </div>
+
+            <div class="product-info">
+                <h4>Men Colorblock Round Neck T-shirt</h4>
+                <p class="old-price">₹1,599</p>
+                <h3 class="price">₹253</h3>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

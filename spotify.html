@@ -1,0 +1,739 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Spotify Clone</title>
+
+    <style>
+
+/* UNIVERSAL CSS */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+
+/* NAVBAR */
+
+.navbar {
+    height: 75px;
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    padding: 10px 20px;
+
+    background-color: black;
+}
+
+
+.logo {
+    font-size: 35px;
+    font-weight: bold;
+}
+
+
+.home {
+    width: 50px;
+    height: 50px;
+
+    border-radius: 50%;
+    border: none;
+
+    background-color: #242424;
+    color: white;
+
+    font-size: 25px;
+    cursor: pointer;
+}
+
+
+.navbar input {
+    width: 400px;
+    padding: 15px;
+
+    border-radius: 30px;
+    border: none;
+
+    background-color: #242424;
+    color: white;
+
+    font-size: 15px;
+}
+
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+
+    margin-left: auto;
+}
+
+
+.nav-links a,
+.account a {
+    text-decoration: none;
+    color: #b3b3b3;
+    font-weight: bold;
+}
+
+
+.account {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+
+.account button {
+    padding: 15px 25px;
+
+    border-radius: 30px;
+    border: none;
+
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+
+/* MAIN LAYOUT */
+
+.layout {
+    display: flex;
+    gap: 10px;
+
+    padding: 0 8px;
+}
+
+
+
+/* SIDEBAR */
+
+.sidebar {
+    flex: 0 0 29%;
+
+    height: 85vh;
+
+    background-color: #121212;
+
+    padding: 20px;
+    border-radius: 10px;
+}
+
+
+.library {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.library button {
+    padding: 12px 20px;
+
+    border-radius: 25px;
+    border: none;
+
+    background-color: #242424;
+    color: white;
+
+    cursor: pointer;
+}
+
+
+.playlist-box,
+.podcast-box {
+    background-color: #202020;
+
+    padding: 20px;
+    margin-top: 30px;
+
+    border-radius: 10px;
+}
+
+
+.playlist-box p,
+.podcast-box p {
+    margin-top: 12px;
+    color: #ddd;
+}
+
+
+.playlist-box button,
+.podcast-box button {
+    margin-top: 20px;
+
+    padding: 12px 20px;
+
+    border: none;
+    border-radius: 25px;
+
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+.sidebar-bottom {
+    margin-top: 100px;
+
+    color: #aaa;
+    font-size: 12px;
+
+    line-height: 30px;
+}
+
+
+.sidebar-bottom button {
+    margin-top: 15px;
+
+    padding: 10px 20px;
+
+    border-radius: 25px;
+
+    background: transparent;
+    border: 1px solid white;
+
+    color: white;
+}
+
+
+
+/* MAIN CONTENT */
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+
+    height: 85vh;
+
+    overflow-y: auto;
+
+    background-color: #181818;
+
+    border-radius: 10px;
+
+    padding: 25px 40px;
+}
+
+
+.music-section {
+    margin-bottom: 50px;
+}
+
+
+
+/* SECTION HEADING */
+
+.section-heading {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+
+.section-heading a {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+
+
+/* SONG CONTAINER */
+
+.song-container {
+    display: flex;
+
+    gap: 20px;
+
+    overflow-x: auto;
+}
+
+
+.song-container::-webkit-scrollbar,
+.artist-container::-webkit-scrollbar {
+    display: none;
+}
+
+
+
+/* SONG CARD */
+
+.song-card {
+    min-width: 160px;
+    max-width: 160px;
+
+    padding: 10px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+}
+
+
+.song-card:hover {
+    background-color: #282828;
+}
+
+
+.song-card img {
+    width: 100%;
+
+    aspect-ratio: 1;
+
+    object-fit: cover;
+
+    border-radius: 8px;
+}
+
+
+.song-card h3 {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+
+.song-card p {
+    margin-top: 8px;
+
+    color: #aaa;
+    font-size: 14px;
+}
+
+
+
+/* ARTIST CONTAINER */
+
+.artist-container {
+    display: flex;
+
+    gap: 20px;
+
+    overflow-x: auto;
+}
+
+
+.artist-card {
+    min-width: 165px;
+    max-width: 165px;
+
+    padding: 10px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+}
+
+
+.artist-card:hover {
+    background-color: #282828;
+}
+
+
+.artist-card img {
+    width: 100%;
+
+    aspect-ratio: 1;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+}
+
+
+.artist-card h3 {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+
+.artist-card p {
+    margin-top: 8px;
+
+    color: #aaa;
+    font-size: 14px;
+}
+
+
+
+/* BOTTOM SIGNUP BANNER */
+
+.signup-banner {
+    position: fixed;
+
+    bottom: 0;
+    left: 8px;
+
+    width: calc(100% - 16px);
+
+    min-height: 68px;
+
+    background: linear-gradient(
+        to right,
+        #b52b9e,
+        #4d9af5
+    );
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    z-index: 10;
+}
+
+
+.signup-banner h4 {
+    margin-bottom: 5px;
+}
+
+
+.signup-banner button {
+    padding: 15px 30px;
+
+    border: none;
+    border-radius: 30px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <header class="navbar">
+
+        <div class="logo">◉</div>
+
+        <button class="home">⌂</button>
+
+        <input type="text"
+        placeholder="🔍 What do you want to play?">
+
+        <div class="nav-links">
+            <a href="#">Premium</a>
+            <a href="#">Support</a>
+            <a href="#">Download</a>
+        </div>
+
+        <div class="account">
+            <a href="#">Install App</a>
+            <a href="#">Sign up</a>
+            <button>Log in</button>
+        </div>
+
+    </header>
+
+
+    <!-- MAIN LAYOUT -->
+
+    <div class="layout">
+
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar">
+
+            <div class="library">
+                <h3>Your Library</h3>
+                <button>+ Create</button>
+            </div>
+
+
+            <div class="playlist-box">
+
+                <h4>Create your first playlist</h4>
+
+                <p>It's easy, we'll help you</p>
+
+                <button>Create playlist</button>
+
+            </div>
+
+
+            <div class="podcast-box">
+
+                <h4>Let's find some podcasts to follow</h4>
+
+                <p>We'll keep you updated on new episodes</p>
+
+                <button>Browse podcasts</button>
+
+            </div>
+
+
+            <div class="sidebar-bottom">
+
+                <p>Legal &nbsp; Safety & Privacy Center</p>
+
+                <p>Privacy Policy &nbsp; Cookies</p>
+
+                <p>About Ads &nbsp; Accessibility</p>
+
+                <button>◎ English</button>
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- MAIN CONTENT -->
+
+        <main class="main-content">
+
+
+            <!-- TRENDING SONGS -->
+
+            <section class="music-section">
+
+                <div class="section-heading">
+
+                    <h2>Trending Songs</h2>
+
+                    <a href="#">Show all</a>
+
+                </div>
+
+
+                <div class="song-container">
+
+
+                    <div class="song-card">
+
+                        <img src="images/song1.jpg">
+
+                        <h3>Song One</h3>
+
+                        <p>Artist One</p>
+
+                    </div>
+
+
+                    <div class="song-card">
+
+                        <img src="images/song2.jpg">
+
+                        <h3>Song Two</h3>
+
+                        <p>Artist Two</p>
+
+                    </div>
+
+
+                    <div class="song-card">
+
+                        <img src="images/song3.jpg">
+
+                        <h3>Song Three</h3>
+
+                        <p>Artist Three</p>
+
+                    </div>
+
+
+                    <div class="song-card">
+
+                        <img src="images/album1.jpg">
+
+                        <h3>Song Four</h3>
+
+                        <p>Artist Four</p>
+
+                    </div>
+
+
+                    <div class="song-card">
+
+                        <img src="images/album2.jpg">
+
+                        <h3>Song Five</h3>
+
+                        <p>Artist Five</p>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- POPULAR ARTISTS -->
+
+            <section class="music-section">
+
+                <div class="section-heading">
+
+                    <h2>Popular Artists</h2>
+
+                    <a href="#">Show all</a>
+
+                </div>
+
+
+                <div class="artist-container">
+
+
+                    <div class="artist-card">
+
+                        <img src="images/artist1.jpg">
+
+                        <h3>Artist One</h3>
+
+                        <p>Artist</p>
+
+                    </div>
+
+
+                    <div class="artist-card">
+
+                        <img src="images/artist2.jpg">
+
+                        <h3>Artist Two</h3>
+
+                        <p>Artist</p>
+
+                    </div>
+
+
+                    <div class="artist-card">
+
+                        <img src="images/artist3.jpg">
+
+                        <h3>Artist Three</h3>
+
+                        <p>Artist</p>
+
+                    </div>
+
+
+                    <div class="artist-card">
+
+                        <img src="images/artist1.jpg">
+
+                        <h3>Artist Four</h3>
+
+                        <p>Artist</p>
+
+                    </div>
+
+
+                    <div class="artist-card">
+
+                        <img src="images/artist2.jpg">
+
+                        <h3>Artist Five</h3>
+
+                        <p>Artist</p>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- POPULAR ALBUMS -->
+
+            <section class="music-section">
+
+                <div class="section-heading">
+
+                    <h2>Popular Albums and Singles</h2>
+
+                    <a href="#">Show all</a>
+
+                </div>
+
+
+                <div class="song-container">
+
+
+                    <div class="song-card">
+
+                        <img src="images/album1.jpg">
+
+                        <h3>Album One</h3>
+
+                        <p>Popular Album</p>
+
+                    </div>
+
+
+                    <div class="song-card">
+
+                        <img src="images/album2.jpg">
+
+                        <h3>Album Two</h3>
+
+                        <p>Popular Album</p>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+        </main>
+
+    </div>
+
+
+
+    <!-- BOTTOM SIGNUP BANNER -->
+
+    <footer class="signup-banner">
+
+        <div>
+
+            <h4>Preview of Spotify</h4>
+
+            <p>
+                Sign up to get unlimited songs and podcasts
+                with occasional ads. No credit card needed.
+            </p>
+
+        </div>
+
+
+        <button>Sign up for free</button>
+
+    </footer>
+
+
+</body>
+
+</html>

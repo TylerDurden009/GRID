@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* Attribute Selectors */
+
+        p[lang="en"] {
+            color: red;
+        }
+
+        p[lang|="en"] {
+            color: green;
+        }
+
+        p[lang*="fr"] {
+            border: 2px solid red;
+            color: blue;
+        }
+
+        img[alt^="Ronaldo"] {
+            border: 2px solid rgb(58, 160, 11);
+        }
+
+        /* Link Pseudo Classes */
+
+        a:link {
+            color: rgb(0, 238, 255);
+        }
+
+        a:visited {
+            color: rgb(9, 128, 0);
+        }
+
+        a:hover {
+            color: rgb(208, 0, 255);
+        }
+
+        a:active {
+            color: rgb(0, 255, 0);
+        }
+
+        /* Section */
+
+        section:target {
+            border: 2px solid red;
+            height: 100px;
+            width: 100px;
+        }
+
+        /* Focus */
+
+        button:focus-visible {
+            background-color: rgb(0, 255, 0);
+        }
+
+        /* Checked */
+
+        input[type="checkbox"]:checked {
+            accent-color: red;
+        }
+
+        /* Structural Pseudo Classes */
+
+        .main p:nth-child(2n) {
+            color: rgb(4, 0, 255);
+        }
+
+        .main p:nth-last-of-type(4) {
+            color: rgb(147, 224, 75);
+        }
+
+        /* Main Div */
+
+        .main {
+            border: 2px solid black;
+            background: linear-gradient(
+                to bottom,
+                red,
+                green,
+                blue
+            );
+        }
+    </style>
+</head>
+
+<body>
+
+    <p lang="en">this is attribute</p>
+    <p lang="en-US">this is attribute 3</p>
+    <p lang="fr">this is attribute 2</p>
+
+    <h1>Overall</h1>
+
+    <p>
+        <img src="./Ronaldo.jpg" alt="Ronaldo" width="104" height="142">
+        <br><br>
+
+        <a href="https://google.com">Google</a>
+        <br><br>
+
+        <a href="https://facebook.com">Facebook</a>
+    </p>
+
+    <div>
+        <nav>
+            <a href="#section1">Section 1</a>
+            <a href="#section2">Section 2</a>
+            <a href="#section3">Section 3</a>
+        </nav>
+
+        <section id="section1">
+            Section 1 Content
+        </section>
+
+        <section id="section2">
+            Section 2 Content
+        </section>
+
+        <section id="section3">
+            Section 3 Content
+        </section>
+    </div>
+
+    <button>Click me</button>
+    <button>Click out</button>
+
+    <br><br>
+
+    <label for="vehicle1">I have a bike</label>
+    <input type="checkbox" checked id="vehicle1" name="vehicle1" value="Bike">
+
+    <br><br>
+
+    <div class="main">
+        <p>this is a test</p>
+        <p>this is another test</p>
+        <p>this is a test2</p>
+        <p>this is a test3</p>
+    </div>
+
+</body>
+</html>
